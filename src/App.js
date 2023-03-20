@@ -1,24 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+// Bootstrap
+import { Container, Row } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+// Pages
+import BarChart from './pages/BarChart';
+import LineChart from './pages/LineChart';
+import PieChart from './pages/PieChart';
+import RadarChart from './pages/RadarChart';
+import DoughnutChart from './pages/DoughnutChart.js';
+
+// Components
+import BasicNavbar from './components/BasicNavbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      <BasicNavbar/>
+      <Container>
+        <Row className="justify-content-md-center">
+
+          <Routes>
+            <Route path='/' element= { <BarChart /> } />
+            <Route path='/LineChart' element= { <LineChart /> } />
+            <Route path='/PieChart' element= { <PieChart /> } />
+            <Route path='/RadarChart' element= { <RadarChart /> } />
+            <Route path='/DoughnutChart' element= { <DoughnutChart /> } />
+          </Routes>
+
+        </Row>
+      </Container>
+    </>
+
   );
 }
 
